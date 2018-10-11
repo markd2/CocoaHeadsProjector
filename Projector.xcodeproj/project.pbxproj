@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7DA549DB216FDC64008E64C5 /* ViewController-cheat-sheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA549DA216FDC64008E64C5 /* ViewController-cheat-sheet.swift */; };
 		7DBB1E1F216EE45E00DD0054 /* ProjectorContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBB1E1E216EE45E00DD0054 /* ProjectorContentsViewController.swift */; };
 		7DBB75B8216ED6F1001D23FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBB75B7216ED6F1001D23FA /* AppDelegate.swift */; };
 		7DBB75BA216ED6F1001D23FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBB75B9216ED6F1001D23FA /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7DA549DA216FDC64008E64C5 /* ViewController-cheat-sheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController-cheat-sheet.swift"; sourceTree = "<group>"; };
 		7DBB1E1E216EE45E00DD0054 /* ProjectorContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectorContentsViewController.swift; sourceTree = "<group>"; };
 		7DBB75B4216ED6F1001D23FA /* Projector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Projector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DBB75B7216ED6F1001D23FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				7DBB75C0216ED6F2001D23FA /* LaunchScreen.storyboard */,
 				7DBB75C3216ED6F2001D23FA /* Info.plist */,
 				7DBB1E1E216EE45E00DD0054 /* ProjectorContentsViewController.swift */,
+				7DA549DA216FDC64008E64C5 /* ViewController-cheat-sheet.swift */,
 			);
 			path = Projector;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DA549DB216FDC64008E64C5 /* ViewController-cheat-sheet.swift in Sources */,
 				7DBB75BA216ED6F1001D23FA /* ViewController.swift in Sources */,
 				7DBB75B8216ED6F1001D23FA /* AppDelegate.swift in Sources */,
 				7DBB1E1F216EE45E00DD0054 /* ProjectorContentsViewController.swift in Sources */,
