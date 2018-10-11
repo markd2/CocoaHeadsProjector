@@ -3,8 +3,10 @@
 --------------------------------------------------
 (in putStuffOnProjector)
         if projectorContents == nil {
+            // Generic "get a VC from the storyboard
             guard let storyboard = self.storyboard else { return }
             guard let projectorContents = storyboard.instantiateViewController(withIdentifier: ProjectorContentsViewController.storyboardName) as? ProjectorContentsViewController else { return }
+            // actual interesting stuff
             addVCToProjector(projectorContents)
         } else {
             removeVCFromProjector(projectorContents!)
@@ -19,6 +21,7 @@
     func hasSecondScreen() -> Bool {
         return UIScreen.screens.count > 1 
     }
+--------------------------------------------------
 
     func addVCToProjector(_ projectorContents: UIViewController) { // existing
         guard hasSecondScreen() else { return }
@@ -29,6 +32,9 @@
         guard let view = projectorContents.view else { return } // forces view load
         view.translatesAutoresizingMaskIntoConstraints = false
 --------------------------------------------------
+    var window: UIWindow?
+
+    // in addVCToProjector
         window = UIWindow()
         window?.screen = screen
         window?.addSubview(view)
@@ -45,7 +51,16 @@ GIVE IT A RUN.  Tour the Simulator. Layout sucks (hopefully)
         NSLayoutConstraint.activate([leftConstraint, topConstraint, 
                                      bottomConstraint, rightConstraint])
 --------------------------------------------------
-Yay!  It works!  Make it betterer
+Yay!  It works!  Toggle.
+
+    func removeVCFromProjector(_ projectorContents: UIViewController) { // existing
+        self.projectorContents?.view.removeFromSuperview()
+        window = nil
+        self.projectorContents = nil
+    }
+
+--------------------------------------------------
+ Make it betterer
 
     override func viewDidLoad() { // existing
         super.viewDidLoad() // existing
@@ -66,16 +81,20 @@ Yay!  It works!  Make it betterer
         putStuffOnPröjector()
     }
 
+breakpoints in putStuffOnProjector
+--------------------------------------------------
 
-    deinit {
-        removeProjectorNotifications()
-    }
+
     func removeProjectorNotifications() {
         let center = NotificationCenter.default
         center.removeObserver(self,
                               name: UIScreen.didConnectNotification, object: nil)
         center.removeObserver(self,
                               name: UIScreen.didDisconnectNotification, object: nil)
+    }
+
+    deinit {
+        removeProjectorNotifications()
     }
 --------------------------------------------------
 
