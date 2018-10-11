@@ -4,7 +4,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        addProjectorNotifications()
     }
+
+    deinit {
+        removeProjectorNotifications()
+    }
+
+
+
     var projectorContents: UIViewController?
     var window: UIWindow?
 
@@ -61,3 +69,27 @@ class ViewController: UIViewController {
     }
 }
 
+
+extension ViewController {
+    func addProjectorNotifications() {
+        let center = NotificationCenter.default
+        
+        center.addObserver(self, selector: #selector(handleScreenComingAndGoing),
+                           name: UIScreen.didConnectNotification,
+                           object: nil)
+        center.addObserver(self, selector: #selector(handleScreenComingAndGoing),
+                           name: UIScreen.didDisconnectNotification,
+                           object: nil)
+    }
+    func removeProjectorNotifications() {
+        let center = NotificationCenter.default
+        center.removeObserver(self,
+                              name: UIScreen.didConnectNotification, object: nil)
+        center.removeObserver(self,
+                              name: UIScreen.didDisconnectNotification, object: nil)
+    }
+
+    @objc func handleScreenComingAndGoing() {
+        putStuffOnPröjector()
+    }
+}
