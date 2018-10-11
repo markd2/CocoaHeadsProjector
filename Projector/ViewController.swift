@@ -6,8 +6,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    var projectorContents: UIViewController?
-    
     @IBAction func putStuffOnPröjector() {
         print("Blargle")
     }
